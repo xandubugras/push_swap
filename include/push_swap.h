@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 15:41:09 by adubugra          #+#    #+#             */
-/*   Updated: 2018/04/16 21:34:10 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/04/17 20:54:49 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,28 @@ typedef struct	s_queue
 typedef struct	s_stack
 {
 	struct s_elem	*top;
+	struct s_elem	*bot;
 }				t_stack;
 /*
-**-------------------------Checker--------------------
+**-------------------------CHECKER--------------------
 */
 int				checker(int argc, char **argv);
 
 int				check_sorted(t_stack *stack);
+/*
+**-------------------------SOLVER---------------------
+*/
+int				push_swap(int argc, char **argv);
+/*
+**-------------------------SORTING---------------------
+*/
+int				sort_stack(t_stack *a, t_queue *commands);
+
+int				stack_sorted(t_stack *a);
+
+int				solve_stack_two_three(t_stack *a, t_queue *commands);
+
+void			push_smart(t_stack *from, t_stack *to, char order, t_queue *commands);
 /*
 **-------------------------NUMBER STACK--------------------
 */
@@ -88,6 +103,16 @@ void			rotate(t_stack *a);
 
 void			reverse_rotate(t_stack *a);
 /*
+**------------------------OPERATIONS-------------------
+*/
+void			swap_q(t_stack *s, char order, t_queue *commands);
+
+void			rotate_q(t_stack *s, char order, t_queue *commands);
+
+void			reverse_rotate_q(t_stack *s, char order, t_queue *commands);
+
+void			push_q(t_stack *from, t_stack *to, char order, t_queue *commands);
+/*
 **-----------------EXECUTE COMMANDS---------------------
 */
 int				execute_commands(t_queue *commands, t_stack *a);
@@ -106,6 +131,12 @@ int				ret_err(int ret_val, char *str);
 /*
 **------------------HELPERS------------------------------
 */
+t_elem			*get_min_elem(t_stack *stack);
+
+t_elem			*get_max_elem(t_stack *stack);
+
+int				compare(int a, int b, char cmp);
+
 void			free_stack(t_stack *stack);
 
 void			free_queue(t_queue *queue);

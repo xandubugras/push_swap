@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 16:00:14 by adubugra          #+#    #+#             */
-/*   Updated: 2018/04/16 19:01:00 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/04/17 16:57:47 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ t_elem	*push(t_stack *stack, int x, char *str)
 	if (!(new = create_elem(x, str)))
 		return (0);		
 	if (!(stack->top))
+	{
 		stack->top = new;
+		stack->bot = new;
+	}
 	else
 	{
 		new->next = stack->top;
@@ -53,6 +56,8 @@ t_elem	*pop(t_stack *stack)
 		stack->top = stack->top->next;
 		if (stack->top)
 			stack->top->prev = 0;
+		else
+			stack->bot = 0;
 		if (tmp && tmp->str)
 			free(tmp->str);
 		free(tmp);

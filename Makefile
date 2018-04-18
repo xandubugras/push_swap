@@ -6,18 +6,20 @@
 #    By: adubugra <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/07 18:20:10 by adubugra          #+#    #+#              #
-#    Updated: 2018/04/16 21:27:59 by adubugra         ###   ########.fr        #
+#    Updated: 2018/04/17 20:53:41 by adubugra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= checker
+NAME	= solver
 TESTER	= tester
 
 # src / obj files
 SRC		= elem.c \
 		  input_check.c \
-		  checker.c \
+		  push_swap.c \
+		  sorting.c \
 		  operations.c \
+		  operations2.c \
 		  number_stack.c \
 		  execute_commands.c \
 		  errors.c \
@@ -27,7 +29,7 @@ SRC		= elem.c \
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
 # compiler
-CC		= gcc
+CC		= clang -g
 CFLAGS	= -Wall -Wextra -Werror -g
 
 # ft library

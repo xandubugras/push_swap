@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 20:00:23 by adubugra          #+#    #+#             */
-/*   Updated: 2018/04/16 21:09:58 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/04/17 18:39:29 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ void	rotate(t_stack *a)
 	t_elem	*buf;
 	t_elem	*tmp;
 
-	if (!(a && a->top))
+	if (!(a && a->top && a->bot))
 		return ;
-	buf = a->top;
-	while (buf->next)
-		buf = buf->next;
+	if (a->top == a->bot)
+		return ;
+	buf = a->bot;
 	if (buf)
 	{
 		tmp = a->top;
@@ -44,6 +44,7 @@ void	rotate(t_stack *a)
 		tmp->prev = buf;
 		a->top = tmp->next;
 		tmp->next = 0;
+		a->bot = tmp;
 	}
 }
 
@@ -54,14 +55,17 @@ void	reverse_rotate(t_stack *a)
 
 	if (!(a && a->top))
 		return ;
-	buf = a->top;
-	while (buf->next)
-		buf = buf->next;
+	if (a->top == a->bot)
+		return ;
+	buf = a->bot;
 	if (buf)
 	{
 		tmp = a->top;
 		if (buf->prev)
+		{
+			a->bot = buf->prev;
 			buf->prev->next = 0;
+		}
 		if (buf != tmp)
 			buf->next = tmp; 
 		else 

@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 17:58:51 by adubugra          #+#    #+#             */
-/*   Updated: 2018/04/17 09:20:43 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/04/17 20:56:11 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,17 +85,20 @@ t_elem	*dequeue(t_queue *queue)
 void	print_queue(t_queue *queue, char order)
 {
 	t_elem	*buf;
+	int		i;
 
-	ft_printf("queue in order %c:\n", order);
 	if (!queue || !(queue->rear))
 	{
 		ft_printf("empty queue\n", order);
 		return ;
 	}
 	buf = order == 'R' ? queue->front : queue->rear;
+	i = 0;
 	while (buf)
 	{
-		ft_printf("x: %d y: %s\n", buf->num, buf->str);
+		ft_printf("%s\n", buf->str);
 		buf = order == 'R' ? buf->prev : buf->next;
+		i++;
 	}
+	//ft_printf("%d operations \n", i);
 }

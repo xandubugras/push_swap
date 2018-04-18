@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 20:17:48 by adubugra          #+#    #+#             */
-/*   Updated: 2018/04/17 10:02:14 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/04/17 19:34:45 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int		execute_commands(t_queue *commands, t_stack *a)
 	while (commands->front)
 	{
 		get_command_func(commands->front->str, a, b);
-		ft_printf("executing %s\n", commands->front->str);
 		dequeue(commands);
 	}
 	free(commands);
@@ -89,7 +88,6 @@ int		get_commands(t_queue *command_queue)
 			free(command);
 			break ;
 		}
-		ft_printf("received %s\n", command);
 		if (command && check_command(command))
 			enqueue(command_queue, 0, command);
 		else
