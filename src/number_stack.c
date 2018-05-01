@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 20:51:57 by adubugra          #+#    #+#             */
-/*   Updated: 2018/04/17 09:56:13 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/01 15:30:17 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int		create_number_stack(t_stack *a, int size, char **numbers)
 		if (!check_arg(numbers[size]))
 		{
 			free_stack(a);
-			return (ret_err(0, "wrong arg\n"));
+			return (ret_err(0, "Error\n"));
 		}
 		tmp = ft_atoi(numbers[size]);
 		if (!check_duplicate(a, tmp))
 		{
 			free_stack(a);
-			return (ret_err(0, "duplicated\n"));
+			return (ret_err(0, "Error\n"));
 		}
 		push(a, tmp, 0);
 		size--;

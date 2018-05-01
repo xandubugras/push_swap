@@ -6,17 +6,16 @@
 #    By: adubugra <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/07 18:20:10 by adubugra          #+#    #+#              #
-#    Updated: 2018/04/17 20:53:41 by adubugra         ###   ########.fr        #
+#    Updated: 2018/05/01 15:26:53 by adubugra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= solver
-TESTER	= tester
+NAME	= checker
+TESTER	= push_swap
 
 # src / obj files
 SRC		= elem.c \
 		  input_check.c \
-		  push_swap.c \
 		  sorting.c \
 		  operations.c \
 		  operations2.c \
@@ -24,12 +23,13 @@ SRC		= elem.c \
 		  execute_commands.c \
 		  errors.c \
 		  helpers.c \
-		  stack.c 
+		  helpers2.c \
+		  stack.c
 
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
 # compiler
-CC		= clang -g
+CC		= gcc
 CFLAGS	= -Wall -Wextra -Werror -g
 
 # ft library
@@ -45,6 +45,8 @@ OBJDIR	= ./obj/
 
 all: obj $(FT_LIB) $(NAME)
 
+test: obj $(FT_LIB) $(TESTER)
+
 obj:
 	mkdir -p $(OBJDIR)
 
@@ -55,7 +57,12 @@ $(FT_LIB):
 	make -C $(FT)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(FT_LNK) -lm -o $(NAME)
+	$(CC) $(CFLAGS) $(FT_INC) -I $(INCDIR) -o obj/checker.o -c src/checker.c
+	$(CC) $(OBJ) obj/checker.o $(FT_LNK) -lm -o $(NAME)
+
+$(TESTER): $(OBJ)
+	$(CC) $(CFLAGS) $(FT_INC) -I $(INCDIR) -o obj/push_swap.o -c src/push_swap.c
+	$(CC) $(OBJ) obj/push_swap.o $(FT_LNK) -lm -o $(TESTER)
 
 clean:
 	rm -rf $(OBJDIR)

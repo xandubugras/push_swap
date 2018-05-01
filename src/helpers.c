@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 21:27:08 by adubugra          #+#    #+#             */
-/*   Updated: 2018/04/17 20:34:20 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/01 15:13:32 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,13 @@ t_elem	*get_min_elem(t_stack *stack)
 		return (stack->top);
 	if (stack->top->next)
 		min = stack->NUM < stack->NEXT_NUM ? stack->top : stack->top->next;
-	if (stack->bot)
+	if (stack->top->next->next)
+		min = min->num < stack->top->next->next->num ?
+			min : stack->top->next->next;
+	if (stack->bot && stack->bot != stack->top->next->next)
 		min = min->num < stack->bot->num ? min : stack->bot;
+	if (stack->bot && stack->bot->prev)
+		min = min->num < stack->bot->prev->num ? min : stack->bot->prev;
 	return (min);
 }
 
@@ -62,8 +67,13 @@ t_elem	*get_max_elem(t_stack *stack)
 		return (stack->top);
 	if (stack->top->next)
 		max = stack->NUM > stack->NEXT_NUM ? stack->top : stack->top->next;
-	if (stack->bot)
+	if (stack->top->next->next)
+		max = max->num > stack->top->next->next->num ?
+			max : stack->top->next->next;
+	if (stack->bot && stack->bot != stack->top->next->next)
 		max = max->num > stack->bot->num ? max : stack->bot;
+	if (stack->bot && stack->bot->prev)
+		max = max->num > stack->bot->prev->num ? max : stack->bot->prev;
 	return (max);
 }
 

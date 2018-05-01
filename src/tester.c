@@ -6,13 +6,13 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 16:23:41 by adubugra          #+#    #+#             */
-/*   Updated: 2018/04/16 17:03:30 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/01 15:20:52 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int		main()
+int		main(void)
 {
 	t_stack *stack;
 	int		cmp;

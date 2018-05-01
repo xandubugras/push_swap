@@ -6,12 +6,12 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 15:41:09 by adubugra          #+#    #+#             */
-/*   Updated: 2018/04/17 20:54:49 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/01 16:02:09 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GRIMLY_H
-# define GRIMLY_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 # include "../libft/libft.h"
 
 typedef struct	s_elem
@@ -43,6 +43,8 @@ int				check_sorted(t_stack *stack);
 **-------------------------SOLVER---------------------
 */
 int				push_swap(int argc, char **argv);
+
+void			clean_queue(t_queue *commands);
 /*
 **-------------------------SORTING---------------------
 */
@@ -50,9 +52,19 @@ int				sort_stack(t_stack *a, t_queue *commands);
 
 int				stack_sorted(t_stack *a);
 
+void			divide_medium(t_stack *a, t_stack *b, t_queue *commands);
+
 int				solve_stack_two_three(t_stack *a, t_queue *commands);
 
-void			push_smart(t_stack *from, t_stack *to, char order, t_queue *commands);
+void			push_smart(t_stack *from, t_stack *to,
+				char order, t_queue *commands);
+
+void			send_smart(t_stack *from, t_stack *to,
+				char order, t_queue *commands);
+
+void			receive_smart(t_stack *to, char order, t_queue *commands);
+
+void			simulator(t_stack *a, t_queue *commands);
 /*
 **-------------------------NUMBER STACK--------------------
 */
@@ -91,17 +103,20 @@ t_elem			*pop(t_stack *stack);
 int				stack_size(t_stack *stack);
 
 void			print_stack(t_stack *stack);
-
+/*
+**-------------------------LISTS----------------------
+*/
+t_elem			*remove_list(t_elem *elem);
 /*
 **------------------------OPERATIONS-------------------
 */
-void			swap(t_stack *a);
+int				swap(t_stack *a);
 
-void			push_to(t_stack *from, t_stack* to);
+int				push_to(t_stack *from, t_stack *to);
 
-void			rotate(t_stack *a);
+int				rotate(t_stack *a);
 
-void			reverse_rotate(t_stack *a);
+int				reverse_rotate(t_stack *a);
 /*
 **------------------------OPERATIONS-------------------
 */
@@ -109,9 +124,11 @@ void			swap_q(t_stack *s, char order, t_queue *commands);
 
 void			rotate_q(t_stack *s, char order, t_queue *commands);
 
-void			reverse_rotate_q(t_stack *s, char order, t_queue *commands);
+void			reverse_rotate_q(t_stack *s, char order,
+				t_queue *commands);
 
-void			push_q(t_stack *from, t_stack *to, char order, t_queue *commands);
+void			push_q(t_stack *from, t_stack *to, char order,
+				t_queue *commands);
 /*
 **-----------------EXECUTE COMMANDS---------------------
 */
@@ -123,7 +140,8 @@ int				get_commands(t_queue *command_queue);
 /*
 **------------------ERRORS------------------------------
 */
-int				ret_err_free_q_s(int ret_val, char *str, t_queue *q, t_stack *s);
+int				ret_err_free_q_s(int ret_val, char *str, t_queue *q,
+				t_stack *s);
 
 int				ret_err_free_s(int ret_val, char *str, t_stack *s);
 

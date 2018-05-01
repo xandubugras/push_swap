@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 17:58:51 by adubugra          #+#    #+#             */
-/*   Updated: 2018/04/17 20:56:11 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/01 15:15:19 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,7 @@ void	print_queue(t_queue *queue, char order)
 	int		i;
 
 	if (!queue || !(queue->rear))
-	{
-		ft_printf("empty queue\n", order);
 		return ;
-	}
 	buf = order == 'R' ? queue->front : queue->rear;
 	i = 0;
 	while (buf)
@@ -100,5 +97,4 @@ void	print_queue(t_queue *queue, char order)
 		buf = order == 'R' ? buf->prev : buf->next;
 		i++;
 	}
-	//ft_printf("%d operations \n", i);
 }

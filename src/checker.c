@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 15:46:15 by adubugra          #+#    #+#             */
-/*   Updated: 2018/04/17 19:32:38 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/01 15:32:50 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		main(int argc, char **argv)
 {
 	if (argc < 2 || !argv)
 		return (0);
-	return(checker(argc, argv));
+	return (checker(argc, argv));
 }
 
 int		checker(int argc, char **argv)
@@ -48,7 +48,6 @@ int		check_sorted(t_stack *stack)
 	buf = stack->top;
 	while (buf->next)
 	{
-		ft_printf("%d < %d\n", buf->num, buf->next->num);
 		if (buf->num == buf->next->num)
 		{
 			free_stack(stack);

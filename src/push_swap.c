@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 10:26:35 by adubugra          #+#    #+#             */
-/*   Updated: 2018/04/17 21:03:14 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/01 16:03:09 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ int		push_swap(int argc, char **argv)
 		return (0);
 	command_queue = create_queue();
 	sort_stack(a, command_queue);
+	clean_queue(command_queue);
 	print_queue(command_queue, 'R');
-	print_stack(a);
+	free_stack(a);
+	free_queue(command_queue);
 	return (1);
 }

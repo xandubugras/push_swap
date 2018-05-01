@@ -6,13 +6,13 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 20:17:48 by adubugra          #+#    #+#             */
-/*   Updated: 2018/04/17 19:34:45 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/01 15:21:51 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int		execute_commands(t_queue *commands, t_stack *a)
+int			execute_commands(t_queue *commands, t_stack *a)
 {
 	t_stack	*b;
 
@@ -57,7 +57,7 @@ static void	get_command_func_2(char *command, t_stack *a, t_stack *b)
 	}
 }
 
-void	get_command_func(char *command, t_stack *a, t_stack *b)
+void		get_command_func(char *command, t_stack *a, t_stack *b)
 {
 	if (ft_strcmp(command, "sa") == 0)
 		swap(a);
@@ -69,15 +69,14 @@ void	get_command_func(char *command, t_stack *a, t_stack *b)
 		swap(b);
 	}
 	else if (ft_strcmp(command, "pa") == 0)
-		push_to(a, b);
-	else if (ft_strcmp(command, "pb") == 0)
 		push_to(b, a);
+	else if (ft_strcmp(command, "pb") == 0)
+		push_to(a, b);
 	else
 		get_command_func_2(command, a, b);
 }
 
-
-int		get_commands(t_queue *command_queue)
+int			get_commands(t_queue *command_queue)
 {
 	char	*command;
 
