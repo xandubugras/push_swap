@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 15:41:09 by adubugra          #+#    #+#             */
-/*   Updated: 2018/05/01 16:02:09 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/01 21:21:22 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int				sort_stack(t_stack *a, t_queue *commands);
 
 int				stack_sorted(t_stack *a);
 
-void			divide_medium(t_stack *a, t_stack *b, t_queue *commands);
+void			divide_medium(t_stack *a, t_stack *b, t_queue *commands, int order);
 
 int				solve_stack_two_three(t_stack *a, t_queue *commands);
 
@@ -69,6 +69,10 @@ void			simulator(t_stack *a, t_queue *commands);
 **-------------------------NUMBER STACK--------------------
 */
 int				create_number_stack(t_stack *a, int size, char **numbers);
+
+int				*bubble_sort(int size, t_stack *numbers);
+
+int				get_median(int size, t_stack *numbers);
 
 /*
 **-------------------------Input Checker--------------------

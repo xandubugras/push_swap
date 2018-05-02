@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 20:38:56 by adubugra          #+#    #+#             */
-/*   Updated: 2018/05/01 15:25:11 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/01 21:26:24 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		sort_stack(t_stack *a, t_queue *commands)
 
 	if ((size = stack_size(a)) <= 1 || stack_sorted(a))
 		return (1);
-	divide_medium(a, b = create_stack(), commands);
+	divide_medium(a, b = create_stack(), commands, R);
 	curr_size = stack_size(a);
 	while (1)
 	{
@@ -51,22 +51,24 @@ int		sort_stack(t_stack *a, t_queue *commands)
 **'R' takes the min and places bigger on top
 */
 
-void	divide_medium(t_stack *a, t_stack *b, t_queue *commands)
+void	divide_medium(t_stack *a, t_stack *b, t_queue *commands, int order)
 {
 	int		medium;
 	int		curr_size;
+	int		size;
 
 	curr_size = stack_size(a);
-	medium = curr_size / 2;
-	while (curr_size > 15 && curr_size > medium + 1)
+	size = curr_size;
+	medium = get_median(curr_size, a);
+	while (curr_size > 15 && curr_size > size / 2)
 	{
 		if (a->top->num <= medium)
 		{
+			push_q(a, b, order, commands);
 			curr_size--;
-			push_q(a, b, R, commands);
 		}
 		else
-			rotate_q(a, R, commands);
+			rotate_q(a, order, commands);
 	}
 }
 
