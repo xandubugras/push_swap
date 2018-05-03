@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 15:41:09 by adubugra          #+#    #+#             */
-/*   Updated: 2018/05/01 21:21:22 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/02 22:07:26 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ int				sort_stack(t_stack *a, t_queue *commands);
 
 int				stack_sorted(t_stack *a);
 
-void			divide_medium(t_stack *a, t_stack *b, t_queue *commands, int order);
+void			divide_medium(t_stack *a, t_stack *b,
+		t_queue *commands, int order);
 
 int				solve_stack_two_three(t_stack *a, t_queue *commands);
 

@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 21:23:30 by adubugra          #+#    #+#             */
-/*   Updated: 2018/04/16 21:25:25 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/02 22:06:32 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int		ret_err(int ret_val, char *str)
 {
 	if (str)
 		ft_putstr_fd(str, 2);
-	ft_putstr_fd("Error\n", 2);
+	else
+		ft_putstr_fd("Error\n", 2);
 	return (ret_val);
 }
 
