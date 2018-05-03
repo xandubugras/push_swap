@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/01 14:56:13 by adubugra          #+#    #+#             */
-/*   Updated: 2018/05/01 15:12:24 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/02 22:26:05 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,14 @@ int		stack_sorted(t_stack *stack)
 		buf = buf->next;
 	}
 	return (1);
+}
+
+int		size_dbl_str(char **str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i - 1);
 }

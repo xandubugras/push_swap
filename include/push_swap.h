@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 15:41:09 by adubugra          #+#    #+#             */
-/*   Updated: 2018/05/02 22:07:26 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/02 22:26:40 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,4 +163,6 @@ int				compare(int a, int b, char cmp);
 void			free_stack(t_stack *stack);
 
 void			free_queue(t_queue *queue);
+
+int				size_dbl_str(char **str);
 #endif

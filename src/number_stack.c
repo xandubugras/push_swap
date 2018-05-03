@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 20:51:57 by adubugra          #+#    #+#             */
-/*   Updated: 2018/05/02 22:06:45 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/02 22:31:54 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int		create_str_split(t_stack *a, char *numbers)
 	int		i;
 
 	str = ft_strsplit(numbers, ' ');
-	i = -1;
-	while (str[++i])
+	i = size_dbl_str(str) + 1;
+	while (--i >= 0)
 	{
 		if (!check_arg(str[i]))
 		{

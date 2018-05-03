@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 20:38:56 by adubugra          #+#    #+#             */
-/*   Updated: 2018/05/01 21:26:24 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/02 22:25:17 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,6 @@ int		sort_stack(t_stack *a, t_queue *commands)
 	return (1);
 }
 
-/*
-**checks the greatest between first second and last, depending on order
-**pops the element in (from)
-**pushes the same element in (to)
-**places in first second or last in (to) depending on order
-**'O' takes the max and places smaller on top
-**'R' takes the min and places bigger on top
-*/
-
 void	divide_medium(t_stack *a, t_stack *b, t_queue *commands, int order)
 {
 	int		medium;
@@ -71,6 +62,15 @@ void	divide_medium(t_stack *a, t_stack *b, t_queue *commands, int order)
 			rotate_q(a, order, commands);
 	}
 }
+
+/*
+**checks the greatest between first second and last, depending on order
+**pops the element in (from)
+**pushes the same element in (to)
+**places in first second or last in (to) depending on order
+**'O' takes the max and places smaller on top
+**'R' takes the min and places bigger on top
+*/
 
 void	push_smart(t_stack *from, t_stack *to, char order, t_queue *commands)
 {
