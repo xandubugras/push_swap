@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 17:08:28 by adubugra          #+#    #+#             */
-/*   Updated: 2018/05/01 15:20:25 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/02 20:42:04 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,26 @@ static int	check_limit_int(char *arg, int neg)
 {
 	int	ret;
 
-	if (arg[0] != '2' && (ret = arg[0] > '2' ? 1 : 0) == 1)
+	if ((ret = arg[0] > '2' ? 1 : 0) >= 0 && arg[0] != '2')
 		return (ret);
-	else if (arg[1] != '1' && (ret = arg[1] > '1' ? 1 : 0) == 1)
+	else if (arg[1] != '1' && (ret = arg[1] > '1' ? 1 : 0) >= 0)
 		return (ret);
-	else if (arg[2] != '4' && (ret = arg[2] > '4' ? 1 : 0) == 1)
+	else if (arg[2] != '4' && (ret = arg[2] > '4' ? 1 : 0) >= 0)
 		return (ret);
-	else if (arg[3] != '7' && (ret = arg[3] > '7' ? 1 : 0) == 1)
+	else if (arg[3] != '7' && (ret = arg[3] > '7' ? 1 : 0) >= 0)
 		return (ret);
-	else if (arg[4] != '4' && (ret = arg[4] > '4' ? 1 : 0) == 1)
+	else if (arg[4] != '4' && (ret = arg[4] > '4' ? 1 : 0) >= 0)
 		return (ret);
-	else if (arg[5] != '8' && (ret = arg[5] > '8' ? 1 : 0) == 1)
+	else if (arg[5] != '8' && (ret = arg[5] > '8' ? 1 : 0) >= 0)
 		return (ret);
-	else if (arg[6] != '3' && (ret = arg[6] > '3' ? 1 : 0) == 1)
+	else if (arg[6] != '3' && (ret = arg[6] > '3' ? 1 : 0) >= 0)
 		return (ret);
-	else if (arg[7] != '6' && (ret = arg[7] > '6' ? 1 : 0) == 1)
+	else if (arg[7] != '6' && (ret = arg[7] > '6' ? 1 : 0) >= 0)
 		return (ret);
-	else if (arg[8] != '4' && (ret = arg[8] > '4' ? 1 : 0) == 1)
+	else if (arg[8] != '4' && (ret = arg[8] > '4' ? 1 : 0) >= 0)
 		return (ret);
-	else if ((!neg && arg[9] != '7' && (ret = arg[9] > '7' ? 1 : 0) == 1) ||
-			(neg && arg[9] != '8' && (ret = arg[9] > '8' ? 1 : 0) == 1))
+	else if ((!neg && arg[9] != '7' && (ret = arg[9] > '7' ? 1 : 0) >= 0) ||
+			(neg && arg[9] != '8' && (ret = arg[9] > '8' ? 1 : 0) >= 0))
 		return (ret);
 	return (ret);
 }
