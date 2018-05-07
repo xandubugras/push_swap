@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 20:51:57 by adubugra          #+#    #+#             */
-/*   Updated: 2018/05/02 22:31:54 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/06 11:14:38 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	free_str(char **str)
 	i = 0;
 	while (str[i])
 		free(str[i++]);
+	free(str);
 }
 
 int		create_str_split(t_stack *a, char *numbers)

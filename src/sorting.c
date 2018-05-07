@@ -6,7 +6,7 @@
 /*   By: adubugra <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/17 20:38:56 by adubugra          #+#    #+#             */
-/*   Updated: 2018/05/02 22:25:17 by adubugra         ###   ########.fr       */
+/*   Updated: 2018/05/05 21:58:48 by adubugra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ void	push_smart(t_stack *from, t_stack *to, char order, t_queue *commands)
 	t_elem	*tmp;
 
 	send_smart(from, to, order, commands);
+	if (!(to->top))
+		return ;
 	tmp = to->top->next;
 	if (!(tmp && !compare(to->top->num, tmp->num, order)))
 		return ;

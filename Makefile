@@ -6,7 +6,7 @@
 #    By: adubugra <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/07 18:20:10 by adubugra          #+#    #+#              #
-#    Updated: 2018/05/01 15:26:53 by adubugra         ###   ########.fr        #
+#    Updated: 2018/05/06 11:46:29 by adubugra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,19 @@ SRC		= elem.c \
 		  helpers2.c \
 		  stack.c
 
-OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
+SRCALL	= $(SRC)
+SRCALL	+= push_swap.c
+SRCALL	+= checker.c
+
+SRCPS	= $(SRC)
+SRCPS	+= push_swap.c
+
+SRCCH	= $(SRC)
+SRCCH	+= checker.c
+
+OBJ	= $(addprefix $(OBJDIR),$(SRCALL:.c=.o))
+OBJCH	= $(addprefix $(OBJDIR),$(SRCCH:.c=.o))
+OBJPS	= $(addprefix $(OBJDIR),$(SRCPS:.c=.o))
 
 # compiler
 CC		= gcc
@@ -56,13 +68,9 @@ $(OBJDIR)%.o:$(SRCDIR)%.c
 $(FT_LIB):
 	make -C $(FT)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(FT_INC) -I $(INCDIR) -o obj/checker.o -c src/checker.c
-	$(CC) $(OBJ) obj/checker.o $(FT_LNK) -lm -o $(NAME)
-
-$(TESTER): $(OBJ)
-	$(CC) $(CFLAGS) $(FT_INC) -I $(INCDIR) -o obj/push_swap.o -c src/push_swap.c
-	$(CC) $(OBJ) obj/push_swap.o $(FT_LNK) -lm -o $(TESTER)
+$(NAME): $(OBJ) 
+	$(CC) $(CFLAGS) $(OBJCH) $(FT_LNK) -lm -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJPS) $(FT_LNK) -lm -o $(TESTER)
 
 clean:
 	rm -rf $(OBJDIR)
@@ -70,6 +78,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+	rm -rf $(TESTER)
 	make -C $(FT) fclean
 
 re: fclean all
